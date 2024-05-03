@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" th:href="@{/favicon.ico}"/>
+
+        <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">TJSL</title>
+
+        <!-- Bootstrap core CSS -->
+        <div th:include="fragments/header :: header-signin"></div>
+
+    </head>
+    <body class="ltr rounded background no-footer">
+        <div class="h-100">
+            <div class="notification-container notification-container-empty">
+                <div></div>
+            </div>
+            <div class="fixed-background"></div>
+            <main>
+                <div class="container">
+                    <div class="h-100 row">
+                        <div class="mx-auto my-auto col-12 col-md-10">
+                            <div class="auth-card card">
+                                <div class="position-relative image-side ">
+                                    <p class="text-white h2" th:text="${title}"></p>
+                                    <p class="white mb-0">Portal TJSL</p>
+                                </div>
+                                <div class="form-side">
+                                    <section layout:fragment="custom-content">
+                                        <p>Your page content goes here</p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Scripts -->
+        <div th:include="fragments/footer :: footer-signin"></div>
+        <section layout:fragment="footer-script"></section>
+
+    </body>
+</html>
