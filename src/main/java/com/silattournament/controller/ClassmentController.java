@@ -1,6 +1,6 @@
 package com.silattournament.controller;
 
-import com.silattournament.service.ParticipantService;
+import com.silattournament.service.ClassmentService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,25 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("participant")
-public class ParticipantController {
+@RequestMapping("classment")
+public class ClassmentController {
 
     @Autowired
-    private ParticipantService participantService;
+    private ClassmentService classmentService;
 
-    @GetMapping()
+    @GetMapping
     public String index(Model model) {
-
-        model.addAttribute("participantList", participantService.findAll());
-//        return "participant/index";
-        return "layouts/participant-index";
+        model.addAttribute("classmentList", classmentService.findAll());
+        return "layouts/classment-index";
     }
 
     @GetMapping("add")
-    public ModelAndView addParticipant(HttpServletRequest request, ModelAndView modelAndView) {
-        System.out.println("TEST");
-        modelAndView.setViewName("layouts/participant-form");
+    public ModelAndView addClassment(HttpServletRequest httpServletRequest, ModelAndView modelAndView) {
+        modelAndView.setViewName("layouts/classment-form");
         return modelAndView;
     }
-
 }

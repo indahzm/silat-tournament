@@ -1,6 +1,6 @@
 package com.silattournament.controller;
 
-import com.silattournament.service.ParticipantService;
+import com.silattournament.service.TournamentService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,24 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("participant")
-public class ParticipantController {
+@RequestMapping("tournament")
+public class TournamentController {
 
     @Autowired
-    private ParticipantService participantService;
+    private TournamentService tournamentService;
 
-    @GetMapping()
+    @GetMapping
     public String index(Model model) {
-
-        model.addAttribute("participantList", participantService.findAll());
-//        return "participant/index";
-        return "layouts/participant-index";
+        model.addAttribute("tournamentList", tournamentService.findAll());
+        return "layouts/tournament-index";
     }
 
     @GetMapping("add")
-    public ModelAndView addParticipant(HttpServletRequest request, ModelAndView modelAndView) {
-        System.out.println("TEST");
-        modelAndView.setViewName("layouts/participant-form");
+    public ModelAndView addTournament(HttpServletRequest httpServletRequest, ModelAndView modelAndView) {
+        modelAndView.setViewName("layouts/tournament-form");
         return modelAndView;
     }
 
