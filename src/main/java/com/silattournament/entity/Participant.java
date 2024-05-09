@@ -16,6 +16,9 @@ public class Participant extends BaseEntity{
     @Column (name = "agency")
     private String agency;
 
+    @Column (name = "age")
+    private String age;
+
     @Column (name = "number")
     private Integer number;
 
