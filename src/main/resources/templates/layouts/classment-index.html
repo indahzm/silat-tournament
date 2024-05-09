@@ -60,7 +60,7 @@
             <tr th:each="participant, e : ${participantList}">
               <td th:text="${e.index+1}"></td>
               <td th:text="${participant.name}"></td>
-              <td th:text="${participant.agency}"></td>
+              <td th:text="${participant.agency+1}"></td>
               <td th:text="${participant.number}"></td>
             </tr>
           </div>

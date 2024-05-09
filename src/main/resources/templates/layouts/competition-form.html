@@ -21,35 +21,36 @@
   <!-- Page Wrapper -->
   <!--    <div id="wrapper">-->
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Participant</h1>
+  <h1 class="h3 mb-2 text-gray-800">Competition</h1>
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Add Participant</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Add Competition</h6>
     </div>
     <div class="card-body">
       <div class="col-6">
-        <form id="form" action="#" th:action="@{/home}" role="form"  th:object="${relawan}" method="post" enctype="multipart/form-data">
+        <form id="form" action="#" th:action="@{/competition/save}" role="form"  th:object="${competition}" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id" th:value="*{id}" />
           <div class="form-group has-float-label mb-6 form-group">
             <div class="row">
               <div class="col-2"></div>
               <label class="col-3 align-content-center mb-0">Name</label>
-              <input type="text" class="form-control col-7" placeholder="Input name">
+              <input type="text" th:value="*{name}" name="name" id="name" class="form-control col-7" placeholder="Input name">
             </div>
           </div>
           <div class="form-group has-float-label mb-6 form-group">
             <div class="row">
               <div class="col-2"></div>
-              <label class="col-3 align-content-center mb-0">Age</label>
-              <input type="number" class="form-control col-7" placeholder="Age">
+              <label class="col-3 align-content-center mb-0">Boundaries</label>
+              <input type="text" class="form-control col-7" th:value="*{boundaries}" name="boundaries" th:id="boundaries" placeholder="Boundaries">
             </div>
           </div>
           <div class="form-group has-float-label mb-6 form-group">
             <div class="row">
               <div class="col-2"></div>
-              <label class="col-3 align-content-center mb-0">Agency</label>
-              <input type="text" class="form-control col-7" placeholder="Agency">
+              <label class="col-3 align-content-center mb-0">Description</label>
+              <textarea class="form-control col-7" th:field="*{description}" name="description" id="description" placeholder="Description" maxlength="500"></textarea>
             </div>
           </div>
 <!--          <div class="form-group">-->
