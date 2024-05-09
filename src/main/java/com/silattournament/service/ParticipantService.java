@@ -7,4 +7,6 @@ import java.util.List;
 public interface ParticipantService {
 
     List<Participant> findAll();
+
+    Participant save(Participant participant);
 }

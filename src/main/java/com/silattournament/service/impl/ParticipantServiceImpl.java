@@ -20,4 +20,9 @@ public class ParticipantServiceImpl implements ParticipantService {
     public List<Participant> findAll() {
         return participantRepository.findAll();
     }
+
+    @Override
+    public Participant save(Participant participant) {
+        return participantRepository.save(participant);
+    }
 }
