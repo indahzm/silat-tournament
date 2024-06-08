@@ -10,18 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.*;
 
 @Controller
 public class LoginController {
 
     @GetMapping
-    private String loginPage() {
-        return "login";
-    }
-
-//    @RequestMapping(value = "/sukarelawan", method = RequestMethod.POST)
+    private String loginPage() { return "login";}
     @PostMapping("/home")
-    private String submitLogin(HttpServletRequest request, ModelAndView modelAndView, Participant relawan, BindingResult bindingResult) throws IOException {
+    private String submitLogin(HttpServletRequest request, ModelAndView modelAndView, BindingResult bindingResult) throws IOException {
         return "layouts/home";
     }
 }
